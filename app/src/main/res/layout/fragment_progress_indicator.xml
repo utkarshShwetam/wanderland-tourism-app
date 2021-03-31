@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:theme="?attr/linearProgressIndicatorStyle"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Booking.TransactionProgressIndicatorFragment">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="12dp"
+        android:fontFamily="@font/roboto"
+        android:textSize="32sp"
+        android:textColor="@color/colorText"
+        android:text="Initiating transaction..."/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+       android:layout_gravity="center"
+        android:layout_marginBottom="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginEnd="12dp"
+        app:lottie_rawRes="@raw/custom_loader_bar"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"/>
+
+</LinearLayout>

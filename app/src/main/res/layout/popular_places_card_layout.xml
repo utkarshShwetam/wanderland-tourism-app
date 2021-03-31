@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="10dp"
+    android:layout_marginTop="15dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginBottom="15dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="8dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorThemeBlue"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/placeToVisit_imageView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/card_round_image"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/popular_places_country_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/placeToVisit_imageView"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/roboto"
+            android:text="France"
+            android:textColor="@color/colorText"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/popular_places_name_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/popular_places_country_TextView"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/roboto"
+            android:text="Paris"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/popular_places_price_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/placeToVisit_imageView"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/roboto"
+            android:text="Price"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/popular_places_discountPrice_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/popular_places_price_textView"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/roboto"
+            android:text="Disc Price"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

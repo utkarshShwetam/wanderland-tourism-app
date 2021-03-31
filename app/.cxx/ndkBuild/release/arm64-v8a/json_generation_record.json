@@ -1,0 +1,80 @@
+[
+  {
+    "level": "INFO",
+    "message": "Start JSON generation. Platform version: 22 min SDK version: arm64-v8a",
+    "file": "D:\\Project\\WanderLand\\app\\src\\main\\jni\\Android.mk",
+    "tag": "release|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "rebuilding JSON D:\\Project\\WanderLand\\app\\.cxx\\ndkBuild\\release\\arm64-v8a\\android_gradle_build.json due to:",
+    "file": "D:\\Project\\WanderLand\\app\\src\\main\\jni\\Android.mk",
+    "tag": "release|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "- command changed from previous, will remove stale json folder",
+    "file": "D:\\Project\\WanderLand\\app\\src\\main\\jni\\Android.mk",
+    "tag": "release|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "removing stale contents from \u0027D:\\Project\\WanderLand\\app\\.cxx\\ndkBuild\\release\\arm64-v8a\u0027",
+    "file": "D:\\Project\\WanderLand\\app\\src\\main\\jni\\Android.mk",
+    "tag": "release|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "created folder \u0027D:\\Project\\WanderLand\\app\\.cxx\\ndkBuild\\release\\arm64-v8a\u0027",
+    "file": "D:\\Project\\WanderLand\\app\\src\\main\\jni\\Android.mk",
+    "tag": "release|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "executing ndkBuild Executable : C:\\Users\\utkar\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\ndk-build.cmd\narguments : \nNDK_PROJECT_PATH\u003dnull\nAPP_BUILD_SCRIPT\u003dD:\\Project\\WanderLand\\app\\src\\main\\jni\\Android.mk\nNDK_APPLICATION_MK\u003dD:\\Project\\WanderLand\\app\\src\\main\\jni\\Application.mk\nAPP_ABI\u003darm64-v8a\nNDK_ALL_ABIS\u003darm64-v8a\nNDK_DEBUG\u003d0\nAPP_PLATFORM\u003dandroid-22\nNDK_OUT\u003dD:/Project/WanderLand/app/build/intermediates/ndkBuild/release/obj\nNDK_LIBS_OUT\u003dD:\\Project\\WanderLand\\app\\build\\intermediates\\ndkBuild\\release\\lib\nAPP_SHORT_COMMANDS\u003dfalse\nLOCAL_SHORT_COMMANDS\u003dfalse\n-B\n-n\njvmArgs : \n\n",
+    "file": "D:\\Project\\WanderLand\\app\\src\\main\\jni\\Android.mk",
+    "tag": "release|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "Executable : C:\\Users\\utkar\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\ndk-build.cmd\narguments : \nNDK_PROJECT_PATH\u003dnull\nAPP_BUILD_SCRIPT\u003dD:\\Project\\WanderLand\\app\\src\\main\\jni\\Android.mk\nNDK_APPLICATION_MK\u003dD:\\Project\\WanderLand\\app\\src\\main\\jni\\Application.mk\nAPP_ABI\u003darm64-v8a\nNDK_ALL_ABIS\u003darm64-v8a\nNDK_DEBUG\u003d0\nAPP_PLATFORM\u003dandroid-22\nNDK_OUT\u003dD:/Project/WanderLand/app/build/intermediates/ndkBuild/release/obj\nNDK_LIBS_OUT\u003dD:\\Project\\WanderLand\\app\\build\\intermediates\\ndkBuild\\release\\lib\nAPP_SHORT_COMMANDS\u003dfalse\nLOCAL_SHORT_COMMANDS\u003dfalse\n-B\n-n\njvmArgs : \n\n",
+    "file": "D:\\Project\\WanderLand\\app\\src\\main\\jni\\Android.mk",
+    "tag": "release|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "done executing ndkBuild",
+    "file": "D:\\Project\\WanderLand\\app\\src\\main\\jni\\Android.mk",
+    "tag": "release|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "write build output D:\\Project\\WanderLand\\app\\.cxx\\ndkBuild\\release\\arm64-v8a\\build_output.txt",
+    "file": "D:\\Project\\WanderLand\\app\\src\\main\\jni\\Android.mk",
+    "tag": "release|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "parse and convert ndk-build output to build configuration JSON",
+    "file": "D:\\Project\\WanderLand\\app\\src\\main\\jni\\Android.mk",
+    "tag": "release|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "found application make file D:\\Project\\WanderLand\\app\\src\\main\\jni\\Application.mk",
+    "file": "D:\\Project\\WanderLand\\app\\src\\main\\jni\\Android.mk",
+    "tag": "release|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "write command file D:\\Project\\WanderLand\\app\\.cxx\\ndkBuild\\release\\arm64-v8a\\build_command.txt",
+    "file": "D:\\Project\\WanderLand\\app\\src\\main\\jni\\Android.mk",
+    "tag": "release|arm64-v8a"
+  },
+  {
+    "level": "INFO",
+    "message": "JSON generation completed without problems",
+    "file": "D:\\Project\\WanderLand\\app\\src\\main\\jni\\Android.mk",
+    "tag": "release|arm64-v8a"
+  }
+]

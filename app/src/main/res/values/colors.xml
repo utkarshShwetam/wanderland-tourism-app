@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Theme Color-->
+    <color name="colorThemeBlue">#48CAE4</color>
+    <color name="colorRed">#FF0015</color>
+    <color name="colorPrimary">#00B4D8</color>
+    <color name="colorPrimaryDark">#48CAE4</color>
+
+    <!--Menu Drawer Text-->
+    <color name="colorAccent">#D9D4F4</color>
+
+    <!--More Colors-->
+    <color name="colorBlack">#000000</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorGrey">#808080</color>
+    <color name="colorLightWhite">#f2f5f8</color>
+    <color name="colorText">#000000</color>
+
+    <!--Dashboard Colors-->
+    <color name="colorDashBackground">#DAEBEF</color>
+
+    <!--Menu Colors-->
+    <color name="colorMenuBackground">#9E91F2</color>
+
+    <!--Dots viewpager color-->
+    <color name="active_dots">#BD0878</color>
+    <color name="inactive_dots">#97999A</color>
+
+</resources>

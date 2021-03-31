@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="270dp"
+    android:layout_gravity="center"
+    android:layout_marginEnd="10dp"
+    android:backgroundTint="@color/colorDashBackground"
+    android:layout_marginStart="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    app:cardCornerRadius="30dp"
+    android:elevation="500dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/thanksTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:text="Payment Failed! Amount deducted will be refunded"
+            android:gravity="center"
+            android:textColor="@color/colorText"
+            android:textSize="24sp"/>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_below="@id/thanksTextView"
+            android:id="@+id/animationThanksView"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            app:lottie_rawRes="@raw/thanks"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"/>
+
+        <TextView
+            android:id="@+id/dismissImageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Press back to return"
+            android:layout_below="@id/animationThanksView"/>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

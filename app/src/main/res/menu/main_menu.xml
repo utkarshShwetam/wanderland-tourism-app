@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/menu_top"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_menu_home"
+            android:icon="@drawable/ic_home"
+            android:title="@string/home" />
+        <!--item
+            android:id="@+id/nav_menu_search_bar"
+            android:title="@string/search"
+            android:icon="@drawable/ic_search_bar"/>-->
+
+    </group>
+
+    <!--<item android:title="@string/profile_title">
+        <menu>
+            &lt;!&ndash;<item
+                android:id="@+id/nav_menu_profile_login"
+                android:title="@string/login"
+                android:icon="@drawable/ic_log_in"/>&ndash;&gt;
+            <item
+                android:id="@+id/nav_menu_profile_profile"
+                android:title="@string/view_profile"
+                android:icon="@drawable/ic_profile_view"/>
+
+        </menu>
+    </item>-->
+    <group>
+        <item
+            android:id="@+id/nav_menu_booking_history"
+            android:icon="@drawable/ic_travel_history"
+            android:title="@string/booking_history" />
+    </group>
+    <group android:id="@+id/menu_payments">
+        <item android:title="@string/payments_title">
+            <menu>
+                <item
+                    android:id="@+id/nav_menu_payments_savedCards"
+                    android:icon="@drawable/ic_saved_card"
+                    android:title="@string/saved_cards" />
+                <!--<item
+                    android:id="@+id/nav_menu_payments_addCard"
+                    android:title="@string/add_card"
+                    android:icon="@drawable/ic_add_card"/>-->
+                <item
+                    android:id="@+id/nav_menu_payments_transaction_history"
+                    android:icon="@drawable/ic_transaction_history"
+                    android:title="@string/transaction_history" />
+            </menu>
+        </item>
+    </group>
+    <group android:id="@+id/menu_logout">
+        <item
+            android:id="@+id/nav_menu_profile_logout"
+            android:icon="@drawable/ic_log_out"
+            android:title="@string/logout" />
+    </group>
+
+
+</menu>
