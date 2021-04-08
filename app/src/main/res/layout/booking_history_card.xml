@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="15dp"
+    android:layout_marginTop="15dp"
+    android:layout_marginEnd="15dp"
+    android:layout_marginBottom="15dp"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="12dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+
+        <TextView
+            android:id="@+id/transaction_amount_booking_history_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/roboto"
+            android:text="Rs.11200"
+            android:textColor="@color/colorText"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/date_booked_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/transaction_amount_booking_history_TextView"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/colorText"
+            android:fontFamily="@font/roboto"
+            android:text="13/02/2020"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/locations_booking_history_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/date_booked_TextView"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto"
+            android:textColor="@color/colorText"
+            android:text="Locations: qwert,eerwqeq,qeq,eq,e"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/booked_days_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/locations_booking_history_textView"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto"
+            android:textColor="@color/colorText"
+            android:text="Days: 1"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/booked_nights_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/locations_booking_history_textView"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/booked_days_textView"
+            android:layout_marginStart="5dp"
+            android:fontFamily="@font/roboto"
+            android:textColor="@color/colorText"
+            android:text="Nights: 2"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/booked_noOfPeople_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/locations_booking_history_textView"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/booked_nights_textView"
+            android:layout_marginStart="5dp"
+            android:fontFamily="@font/roboto"
+            android:textColor="@color/colorText"
+            android:text="People: 3"
+            android:textSize="16sp" />
+
+        <!--<TextView
+            android:id="@+id/transaction_id_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/booked_days_textView"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto"
+            android:text="ID: aZrjdMCMYhYNEgBTKRtLiYgnPXspskEXHmJSVHzu"
+            android:textSize="12sp" />-->
+
+        <TextView
+            android:id="@+id/status_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/roboto"
+            android:textColor="@color/colorText"
+            android:text="Status: Booked"
+            android:textSize="16sp" />
+
+        <!--<TextView
+            android:id="@+id/payment_mode_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/status_textView"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/colorText"
+            android:fontFamily="@font/roboto"
+            android:text="Payment Mode: CARD"
+            android:textSize="16sp" />-->
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>

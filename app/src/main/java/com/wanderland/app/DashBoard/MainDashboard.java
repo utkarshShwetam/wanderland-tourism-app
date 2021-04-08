@@ -23,6 +23,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.android.material.navigation.NavigationView;
+import com.wanderland.app.Booking.BookingActivity;
+import com.wanderland.app.BookingHistory.BookingHistoryActivity;
+import com.wanderland.app.BookingHistory.Modal.BookingHistoryModal;
 import com.wanderland.app.Constants.ConstantValues;
 import com.wanderland.app.DashBoard.DataModals.BestDealsModal;
 import com.wanderland.app.DashBoard.DataModals.GetPackagesModal;
@@ -239,6 +242,9 @@ public class MainDashboard extends AppCompatActivity implements NavigationView.O
           /*  case R.id.nav_menu_payments_addCard:
                     break;*/
             case R.id.nav_menu_booking_history:
+                drawerLayout.closeDrawers();
+                Intent intent = new Intent(getApplicationContext(), BookingHistoryActivity.class);
+                startActivity(intent);
                 break;
             case R.id.nav_menu_payments_transaction_history:
                 drawerLayout.closeDrawers();
