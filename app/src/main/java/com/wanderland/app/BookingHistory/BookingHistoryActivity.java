@@ -18,6 +18,7 @@ import com.wanderland.app.BookingHistory.Modal.BookingHistoryModal;
 import com.wanderland.app.BookingHistory.ViewAdapter.BookingHistoryViewAdapter;
 import com.wanderland.app.Constants.ConstantValues;
 import com.wanderland.app.R;
+import com.wanderland.app.TransactionHistory.TransactionHistoryActivity;
 import com.wanderland.app.TransactionHistory.ViewAdapter.TransactionHistoryViewAdapter;
 
 import org.jetbrains.annotations.NotNull;
@@ -39,6 +40,8 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
+import static maes.tech.intentanim.CustomIntent.customType;
+
 public class BookingHistoryActivity extends AppCompatActivity {
     private RecyclerView bookingHistoryRecycler;
     private RecyclerView.Adapter<BookingHistoryViewAdapter.BookingHistoryViewHolder> bookingHistoryAdapter;
@@ -57,6 +60,7 @@ public class BookingHistoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_history);
+        customType(BookingHistoryActivity.this, "left-to-right");
         bookingHistoryRecycler=findViewById(R.id.booking_recycler);
         noBookingHistory=findViewById(R.id.noBookingHistory);
         bookingHistoryShimmer=findViewById(R.id.shimmer_view_container_booking_history);
