@@ -243,8 +243,13 @@ public class MainDashboard extends AppCompatActivity implements NavigationView.O
                     break;*/
             case R.id.nav_menu_booking_history:
                 drawerLayout.closeDrawers();
-                Intent intent = new Intent(getApplicationContext(), BookingHistoryActivity.class);
-                startActivity(intent);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Intent intent = new Intent(getApplicationContext(), BookingHistoryActivity.class);
+                        startActivity(intent);
+                    }
+                }, SPLASH_TIMER);
                 break;
             case R.id.nav_menu_payments_transaction_history:
                 drawerLayout.closeDrawers();
