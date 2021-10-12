@@ -50,8 +50,8 @@ public class LoginActivity extends AppCompatActivity {
     //Login parameters OkHttp
     private OkHttpClient client;
     private Response response;
-    private String [] JSESSIONID_INFO;
-    final String URLLogin = ConstantValues.API+"/login";
+    private String[] JSESSIONID_INFO;
+    final String URLLogin = ConstantValues.API + "/login";
 
 
     @Override
@@ -64,14 +64,14 @@ public class LoginActivity extends AppCompatActivity {
         usernameDetails = findViewById(R.id.usernameTextField);
         passwordDetails = findViewById(R.id.passwordTextField);
         signUP = findViewById(R.id.link_logIn);
-        materialButton=findViewById(R.id.login_button);
+        materialButton = findViewById(R.id.login_button);
 
         forErrorDisplayPassword = findViewById(R.id.passwordTextInputLayout);
         forErrorDisplayUsername = findViewById(R.id.usernameTextInputLayout);
 
         //Button Animation
         PushDownAnim.setPushDownAnimTo(materialButton)
-        .setScale(MODE_SCALE,0.89f);
+                .setScale(MODE_SCALE, 0.89f);
 
     }
 
@@ -109,7 +109,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    private void textOnChangeListenerUsername(){
+    private void textOnChangeListenerUsername() {
         usernameDetails.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -127,7 +127,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-    private void textOnChangeListenerPassword(){
+
+    private void textOnChangeListenerPassword() {
         passwordDetails.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -165,104 +166,81 @@ public class LoginActivity extends AppCompatActivity {
             AsyncTask.execute(new Runnable() {
                 @Override
                 public void run() {
-                        JSONObject jsonObject = new JSONObject();
-                        try {
-                            jsonObject.put("username", username);
-                            jsonObject.put("password", password);
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        client= new OkHttpClient();
-                        client.connectTimeoutMillis();
-                        client.readTimeoutMillis();
-                        MediaType JSON = MediaType.parse("application/json; charset=utf-8");
-                        RequestBody body = RequestBody.create(jsonObject.toString(),JSON);
-                        Request request = new Request.Builder()
-                                .url(URLLogin)
-                                .post(body)
-                                .build();
+                    JSONObject jsonObject = new JSONObject();
+                    try {
+                        jsonObject.put("username", username);
+                        jsonObject.put("password", password);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    client = new OkHttpClient();
+                    client.connectTimeoutMillis();
+                    client.readTimeoutMillis();
+                    MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+                    RequestBody body = RequestBody.create(jsonObject.toString(), JSON);
+                    Request request = new Request.Builder()
+                            .url(URLLogin)
+                            .post(body)
+                            .build();
 
-                        try {
-                            response = client.newCall(request).execute();
-                            if (!response.isSuccessful()){
-                                runOnUiThread(new Runnable() {
-                                    public void run() {
-                                        forErrorDisplayPassword.setError("Wrong Password");
-                                        textOnChangeListenerPassword();
-                                    }
-                                });
-                            }else{
-                                Log.e("Response", response.toString());
-                                String a =response.headers("Set-Cookie").toString();
-                                String [] cookiesInfo=a.split(";");
-                                JSESSIONID_INFO=cookiesInfo[0].split("=");
+                    try {
+                        response = client.newCall(request).execute();
+                        if (!response.isSuccessful()) {
+                            runOnUiThread(new Runnable() {
+                                public void run() {
+                                    forErrorDisplayPassword.setError("Wrong Password");
+                                    textOnChangeListenerPassword();
+                                }
+                            });
+                        } else {
+                            Log.e("Response", response.toString());
+                            String a = response.headers("Set-Cookie").toString();
+                            String[] cookiesInfo = a.split(";");
+                            JSESSIONID_INFO = cookiesInfo[0].split("=");
+                            try {
+                                //Log.e("J_SESSION_ID", JSESSIONID_INFO[1]);
                                 try {
-                                    //Log.e("J_SESSION_ID", JSESSIONID_INFO[1]);
+                                    SharedPreferences preferences = getSharedPreferences("AUTHENTICATION_TOKEN_FILE_NAME", Context.MODE_PRIVATE);
+                                    SharedPreferences.Editor editor = preferences.edit();
+                                    editor.putString("KEY", JSESSIONID_INFO[1]);
+                                    editor.apply();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+
+                            } catch (ArrayIndexOutOfBoundsException e) {
+                                Log.e("Error", "No sessions id found");
+                            }
+                            String jsonData = response.body().string();
+                            final JSONObject jObject = new JSONObject(jsonData);
+                            Log.e("JSON", jObject.get("status").toString());
+                            Log.e("JSON", jObject.get("body").toString());
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
                                     try {
-                                        SharedPreferences preferences = getSharedPreferences("AUTHENTICATION_TOKEN_FILE_NAME", Context.MODE_PRIVATE);
-                                        SharedPreferences.Editor editor = preferences.edit();
-                                        editor.putString("KEY", JSESSIONID_INFO[1]);
-                                        editor.apply();
-                                    } catch (Exception e) {
+                                        if (!jObject.get("body").toString().equals("login successful")) {
+                                            forErrorDisplayUsername.setError(jObject.get("body").toString());
+                                            textOnChangeListenerUsername();
+                                        } else {
+                                            Toast.makeText(LoginActivity.this, "WELCOME", Toast.LENGTH_SHORT).show();
+                                            startActivity(new Intent(LoginActivity.this, MainDashboard.class));
+                                            customType(LoginActivity.this, "left-to-right");
+                                            finish();
+
+                                        }
+                                    } catch (JSONException e) {
                                         e.printStackTrace();
                                     }
-
-                                }catch (ArrayIndexOutOfBoundsException e){
-                                    Log.e("Error","No sessions id found");
                                 }
-                                String jsonData = response.body().string();
-                                final JSONObject jObject = new JSONObject(jsonData);
-                                Log.e("JSON",jObject.get("status").toString());
-                                Log.e("JSON",jObject.get("body").toString());
-                                runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        try {
-                                            if(!jObject.get("body").toString().equals("login successful")){
-                                                forErrorDisplayUsername.setError(jObject.get("body").toString());
-                                                textOnChangeListenerUsername();
-                                            }else{
-                                                Toast.makeText(LoginActivity.this, "WELCOME", Toast.LENGTH_SHORT).show();
-                                                startActivity(new Intent(LoginActivity.this, MainDashboard.class));
-                                                customType(LoginActivity.this, "left-to-right");
-                                                finish();
-
-                                            }
-                                        } catch (JSONException e) {
-                                            e.printStackTrace();
-                                        }
-                                    }
-                                });
-                            }
-                            response.close();
-                        } catch (IOException | JSONException e) {
-                            e.printStackTrace();
+                            });
                         }
+                        response.close();
+                    } catch (IOException | JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
             });
-
-            /*Intent intent= new Intent(LoginActivity.this, MainDashboard.class);
-            startActivity(intent);
-            customType(LoginActivity.this, "left-to-right");*/
         }
     }
-
-
-
-
 }
-//KEY-QwdqWQQ12ddfSVBNiTUYopsJHFLinamvQWE
-
- /*byte[] iv = new byte[16];
-                                        Encryption encryption = Encryption.getDefault(getNativeKey1(), getNativeKey2(), iv);
-                                        String encrypted = encryption.encryptOrNull(JSESSIONID_INFO[1]);
-                                        Log.e("ENC",encrypted);
-                                        String decrypted = encryption.decryptOrNull(encrypted);
-                                        Log.e("ENC",decrypted);*/
-                                        /*String KEY =getNativeKey1();
-                                        byte[] data = JSESSIONID_INFO[1].getBytes(StandardCharsets.UTF_8);
-                                        SecurityForSession.EncryptedData encData = SecurityForSession.encrypt(KEY, data);*/
-
-                                        /*byte[] decryptedData =SecurityForSession.decrypt(KEY, encData.salt, encData.iv, encData.encryptedData);
-                                        String decDataAsString = new String(decryptedData, StandardCharsets.UTF_8);
-                                        Log.e("AES Decrypted",decDataAsString);*/
