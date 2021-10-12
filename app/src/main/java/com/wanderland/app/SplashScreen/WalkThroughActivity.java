@@ -3,7 +3,9 @@ package com.wanderland.app.SplashScreen;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Html;
@@ -23,6 +25,7 @@ import com.wanderland.app.R;
 public class WalkThroughActivity extends AppCompatActivity {
 
     //Variables
+    SharedPreferences preferences;
     ViewPager viewPager;
     boolean singleBack = false;
     LinearLayout dotsLayout;
@@ -52,10 +55,13 @@ public class WalkThroughActivity extends AppCompatActivity {
             super.onBackPressed();
             return;
         }
-
         this.singleBack = true;
         Toast.makeText(this, "Double Tap to exit", Toast.LENGTH_SHORT).show();
-
+        preferences=getSharedPreferences("WALK_THROUGH_SCREEN", Context.MODE_PRIVATE);
+        boolean firstLaunch=preferences.getBoolean("FIRST_TIME",true);
+        SharedPreferences.Editor editor=preferences.edit();
+        editor.putBoolean("FIRST_TIME",true);
+        editor.apply();
         new Handler().postDelayed(new Runnable() {
 
             @Override
