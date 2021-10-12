@@ -109,7 +109,7 @@ public class TransactionHistoryActivity extends AppCompatActivity {
         transactionRecyclerView.setHasFixedSize(true);
         transactionRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         ArrayList<TransactionHistoryModal> transactionHistoryList = new ArrayList<>();
-        for (int i = transactionHistoryModalArrayList.size()-1; i >0; i--) {
+        for (int i = transactionHistoryModalArrayList.size()-1; i >=0; i--) {
             transactionHistoryList.add(new TransactionHistoryModal(
                     "ID: " + transactionHistoryModalArrayList.get(i).getTransaction_id(),
                     transactionHistoryModalArrayList.get(i).getPackage_id(),
@@ -172,10 +172,17 @@ public class TransactionHistoryActivity extends AppCompatActivity {
                         String serverResponse = response.body().string();
                         JSONObject jObject = new JSONObject(serverResponse);
                         JSONArray jsonArray = jObject.getJSONArray("body");
+                        Log.e("Length", String.valueOf(jsonArray.length()));
                         if(jsonArray.length()==0){
-                            noTransactionFound.setVisibility(View.VISIBLE);
-                            transactionHistoryShimmer.setVisibility(View.GONE);
-                            transactionHistoryShimmer.stopShimmer();
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    noTransactionFound.setVisibility(View.VISIBLE);
+                                    transactionHistoryShimmer.setVisibility(View.GONE);
+                                    transactionHistoryShimmer.stopShimmer();
+                                }
+                            });
+
                         }
                         else {
                             Log.e("JSON", jObject.get("status").toString());
@@ -192,7 +199,6 @@ public class TransactionHistoryActivity extends AppCompatActivity {
                                 String date = object.get("create_time").toString();
                                 String[] s = date.split("T");
                                 transactionDataHistoryModal.setCreate_time(s[0]);
-
                                 transactionHistoryModalArrayList.add(transactionDataHistoryModal);
                             }
                         }

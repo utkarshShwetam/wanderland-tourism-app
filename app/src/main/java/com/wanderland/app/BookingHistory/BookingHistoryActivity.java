@@ -1,9 +1,5 @@
 package com.wanderland.app.BookingHistory;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -13,13 +9,15 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.wanderland.app.BookingHistory.Modal.BookingHistoryModal;
 import com.wanderland.app.BookingHistory.ViewAdapter.BookingHistoryViewAdapter;
 import com.wanderland.app.Constants.ConstantValues;
 import com.wanderland.app.R;
-import com.wanderland.app.TransactionHistory.TransactionHistoryActivity;
-import com.wanderland.app.TransactionHistory.ViewAdapter.TransactionHistoryViewAdapter;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
@@ -28,7 +26,6 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import okhttp3.Cookie;
@@ -46,7 +43,7 @@ public class BookingHistoryActivity extends AppCompatActivity {
     private RecyclerView bookingHistoryRecycler;
     private RecyclerView.Adapter<BookingHistoryViewAdapter.BookingHistoryViewHolder> bookingHistoryAdapter;
     private ShimmerFrameLayout bookingHistoryShimmer;
-    private ArrayList<BookingHistoryModal> bookingHistoryModalArrayList=new ArrayList<>();
+    private ArrayList<BookingHistoryModal> bookingHistoryModalArrayList = new ArrayList<>();
     private ImageView imageView;
     private TextView noBookingHistory;
 
@@ -54,17 +51,17 @@ public class BookingHistoryActivity extends AppCompatActivity {
     //OkHttp
     OkHttpClient client;
     Response response;
-    final String URLBookingHistory = ConstantValues.API +"/user/get-booking-history";
+    final String URLBookingHistory = ConstantValues.API + "/user/get-booking-history";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_history);
         customType(BookingHistoryActivity.this, "left-to-right");
-        bookingHistoryRecycler=findViewById(R.id.booking_recycler);
-        noBookingHistory=findViewById(R.id.noBookingHistory);
-        bookingHistoryShimmer=findViewById(R.id.shimmer_view_container_booking_history);
-        imageView=findViewById(R.id.back_press_booking_history);
+        bookingHistoryRecycler = findViewById(R.id.booking_recycler);
+        noBookingHistory = findViewById(R.id.noBookingHistory);
+        bookingHistoryShimmer = findViewById(R.id.shimmer_view_container_booking_history);
+        imageView = findViewById(R.id.back_press_booking_history);
         bookingHistoryRecycler.setVisibility(View.INVISIBLE);
         bookingHistoryShimmer.setVisibility(View.VISIBLE);
         bookingHistoryShimmer.startShimmer();
@@ -98,7 +95,7 @@ public class BookingHistoryActivity extends AppCompatActivity {
         bookingHistoryRecycler.setHasFixedSize(true);
         bookingHistoryRecycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         ArrayList<BookingHistoryModal> bookingHistoryModals = new ArrayList<>();
-        for (int i = bookingHistoryModalArrayList.size()-1; i >0; i--) {
+        for (int i = bookingHistoryModalArrayList.size()-1; i >= 0; i--) {
             bookingHistoryModals.add(new BookingHistoryModal(
                     "ID: " + bookingHistoryModalArrayList.get(i).getTransaction_id(),
                     bookingHistoryModalArrayList.get(i).getPackage_id(),
@@ -109,7 +106,7 @@ public class BookingHistoryActivity extends AppCompatActivity {
                     bookingHistoryModalArrayList.get(i).getTransaction_id(),
                     bookingHistoryModalArrayList.get(i).getUser_id(),
                     bookingHistoryModalArrayList.get(i).getCreate_time(),
-                    "Locations: "+bookingHistoryModalArrayList.get(i).getLocations(),
+                    "Locations: " + bookingHistoryModalArrayList.get(i).getLocations(),
                     bookingHistoryModalArrayList.get(i).getLocationsArray()));
             //Log.e("Recycler", "bookingHistoryRecycler: "+bookingHistoryModalArrayList.get(i).getLocations());
         }
@@ -124,7 +121,7 @@ public class BookingHistoryActivity extends AppCompatActivity {
     }
 
     //***********************************GET booking history**************************************************
-    private void getHistory(){
+    private void getHistory() {
 
         final JSONObject jsonObject = new JSONObject();
         try {
@@ -167,12 +164,17 @@ public class BookingHistoryActivity extends AppCompatActivity {
                         String serverResponse = response.body().string();
                         JSONObject jObject = new JSONObject(serverResponse);
                         JSONArray jsonArray = jObject.getJSONArray("body");
-                        if(jsonArray.length()==0){
-                            noBookingHistory.setVisibility(View.VISIBLE);
-                            bookingHistoryShimmer.setVisibility(View.GONE);
-                            bookingHistoryShimmer.stopShimmer();
-                        }
-                        else {
+                        if (jsonArray.length() == 0) {
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    noBookingHistory.setVisibility(View.VISIBLE);
+                                    bookingHistoryShimmer.setVisibility(View.GONE);
+                                    bookingHistoryShimmer.stopShimmer();
+                                }
+                            });
+
+                        } else {
                             Log.e("JSON", jObject.get("status").toString());
                             for (int i = 0; i < jsonArray.length(); i++) {
                                 JSONObject object = (JSONObject) jsonArray.get(i);
@@ -187,18 +189,19 @@ public class BookingHistoryActivity extends AppCompatActivity {
                                 String date = object.get("create_time").toString();
                                 String[] s = date.split("T");
                                 transactionDataHistoryModal.setCreate_time(s[0]);
-                                String loc="";
+                                String loc = "";
                                 String[] locations = new String[object.getJSONArray("locations").length()];
                                 for (int k = 0; k < object.getJSONArray("locations").length(); k++) {
                                     locations[k] = object.getJSONArray("locations").get(k).toString();
-                                    if(k!=object.getJSONArray("locations").length()-1)
-                                        loc=loc.concat(locations[k]+" ,");
+                                    if (k != object.getJSONArray("locations").length() - 1)
+                                        loc = loc.concat(locations[k] + " ,");
                                     else
-                                        loc=loc.concat(locations[k]);
+                                        loc = loc.concat(locations[k]);
                                 }
                                 transactionDataHistoryModal.setLocationsArray(locations);
                                 transactionDataHistoryModal.setLocations(loc);
                                 bookingHistoryModalArrayList.add(transactionDataHistoryModal);
+                                //Log.e("SIZE", String.valueOf(bookingHistoryModalArrayList.size()));
                             }
                         }
                         runOnUiThread(new Runnable() {
@@ -209,13 +212,12 @@ public class BookingHistoryActivity extends AppCompatActivity {
                         });
                     }
                     response.close();
-                }catch (IOException | JSONException e){
+                } catch (IOException | JSONException e) {
                     e.printStackTrace();
                 }
             }
         });
     }
-
 
 
     public static Cookie createNonPersistentCookie() {

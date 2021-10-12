@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.sharish:CreditCardView:v1.0.4@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/cec097ee9b217322b88c88d6ca64bdeb/jetified-CreditCardView-v1.0.4/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/cec097ee9b217322b88c88d6ca64bdeb/jetified-CreditCardView-v1.0.4/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/cec097ee9b217322b88c88d6ca64bdeb/jetified-CreditCardView-v1.0.4/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/bea5cc3342d20d017791b77eea5becd1/transformed/jetified-CreditCardView-v1.0.4/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/bea5cc3342d20d017791b77eea5becd1/transformed/jetified-CreditCardView-v1.0.4/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/bea5cc3342d20d017791b77eea5becd1/transformed/jetified-CreditCardView-v1.0.4/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

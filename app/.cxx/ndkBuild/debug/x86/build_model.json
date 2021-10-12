@@ -1,10 +1,5 @@
 {
   "abi": "X86",
-  "abiPlatformVersion": 22,
-  "buildSettings": {
-    "environmentVariables": []
-  },
-  "cxxBuildFolder": "D:\\Project\\WanderLand\\app\\.cxx\\ndkBuild\\debug\\x86",
   "info": {
     "abi": "X86",
     "bitness": 32,
@@ -12,30 +7,71 @@
     "default": true
   },
   "originalCxxBuildFolder": "D:\\Project\\WanderLand\\app\\.cxx\\ndkBuild\\debug\\x86",
+  "cxxBuildFolder": "D:\\Project\\WanderLand\\app\\.cxx\\ndkBuild\\debug\\x86",
+  "abiPlatformVersion": 22,
   "variant": {
     "buildSystemArgumentList": [],
+    "cFlagsList": [],
+    "cppFlagsList": [],
+    "variantName": "debug",
+    "objFolder": "D:\\Project\\WanderLand\\app\\build\\intermediates\\ndkBuild\\debug\\obj\\local",
+    "soFolder": "D:\\Project\\WanderLand\\app\\build\\intermediates\\ndkBuild\\debug\\lib",
+    "isDebuggableEnabled": true,
+    "validAbiList": [
+      "ARMEABI_V7A",
+      "ARM64_V8A",
+      "X86",
+      "X86_64"
+    ],
     "buildTargetSet": [],
     "implicitBuildTargetSet": [],
-    "cFlagsList": [],
     "cmakeSettingsConfiguration": "android-gradle-plugin-predetermined-name",
-    "cppFlagsList": [],
-    "isDebuggableEnabled": true,
     "module": {
-      "buildSystem": "NDK_BUILD",
-      "cmakeToolchainFile": "C:\\Users\\utkar\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\build\\cmake\\android.toolchain.cmake",
       "cxxFolder": "D:\\Project\\WanderLand\\app\\.cxx",
-      "gradleModulePathName": ":app",
+      "splitsAbiFilterSet": [],
       "intermediatesFolder": "D:\\Project\\WanderLand\\app\\build\\intermediates",
-      "makeFile": "D:\\Project\\WanderLand\\app\\src\\main\\jni\\Android.mk",
-      "moduleBuildFile": "D:\\Project\\WanderLand\\app\\build.gradle",
+      "gradleModulePathName": ":app",
       "moduleRootFolder": "D:\\Project\\WanderLand\\app",
+      "moduleBuildFile": "D:\\Project\\WanderLand\\app\\build.gradle",
+      "makeFile": "D:\\Project\\WanderLand\\app\\src\\main\\jni\\Android.mk",
+      "buildSystem": "NDK_BUILD",
+      "ndkFolder": "C:\\Users\\utkar\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529",
+      "ndkVersion": "21.4.7075529",
+      "ndkSupportedAbiList": [
+        "ARMEABI_V7A",
+        "ARM64_V8A",
+        "X86",
+        "X86_64"
+      ],
       "ndkDefaultAbiList": [
         "ARMEABI_V7A",
         "ARM64_V8A",
         "X86",
         "X86_64"
       ],
-      "ndkFolder": "C:\\Users\\utkar\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462",
+      "ndkDefaultStl": "SYSTEM",
+      "ndkMetaPlatforms": {
+        "min": 16,
+        "max": 30,
+        "aliases": {
+          "20": 19,
+          "25": 24,
+          "J": 16,
+          "J-MR1": 17,
+          "J-MR2": 18,
+          "K": 19,
+          "L": 21,
+          "L-MR1": 22,
+          "M": 23,
+          "N": 24,
+          "N-MR1": 24,
+          "O": 26,
+          "O-MR1": 27,
+          "P": 28,
+          "Q": 29,
+          "R": 30
+        }
+      },
       "ndkMetaAbiList": [
         {
           "abi": "ARMEABI_V7A",
@@ -62,66 +98,36 @@
           "default": true
         }
       ],
-      "ndkMetaPlatforms": {
-        "min": 16,
-        "max": 29,
-        "aliases": {
-          "20": 19,
-          "25": 24,
-          "J": 16,
-          "J-MR1": 17,
-          "J-MR2": 18,
-          "K": 19,
-          "L": 21,
-          "L-MR1": 22,
-          "M": 23,
-          "N": 24,
-          "N-MR1": 24,
-          "O": 26,
-          "O-MR1": 27,
-          "P": 28,
-          "Q": 29
-        }
-      },
-      "ndkSupportedAbiList": [
-        "ARMEABI_V7A",
-        "ARM64_V8A",
-        "X86",
-        "X86_64"
-      ],
-      "ndkDefaultStl": "SYSTEM",
-      "ndkVersion": "21.1.6352462",
-      "project": {
-        "compilerSettingsCacheFolder": "D:\\Project\\WanderLand\\.cxx",
-        "cxxFolder": "D:\\Project\\WanderLand\\.cxx",
-        "ideBuildTargetAbi": "x86",
-        "isBuildOnlyTargetAbiEnabled": true,
-        "isCmakeBuildCohabitationEnabled": false,
-        "isNativeCompilerSettingsCacheEnabled": false,
-        "rootBuildGradleFolder": "D:\\Project\\WanderLand",
-        "sdkFolder": "C:\\Users\\utkar\\AppData\\Local\\Android\\Sdk",
-        "isPrefabEnabled": false
-      },
-      "splitsAbiFilterSet": [],
+      "originalCmakeToolchainFile": "C:\\Users\\utkar\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529\\build\\cmake\\android.toolchain.cmake",
+      "cmakeToolchainFile": "C:\\Users\\utkar\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529\\build\\cmake\\android.toolchain.cmake",
       "stlSharedObjectMap": {
         "LIBCXX_SHARED": {
-          "ARMEABI_V7A": "C:\\Users\\utkar\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\arm-linux-androideabi\\libc++_shared.so",
-          "ARM64_V8A": "C:\\Users\\utkar\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\aarch64-linux-android\\libc++_shared.so",
-          "X86": "C:\\Users\\utkar\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\i686-linux-android\\libc++_shared.so",
-          "X86_64": "C:\\Users\\utkar\\AppData\\Local\\Android\\Sdk\\ndk\\21.1.6352462\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\x86_64-linux-android\\libc++_shared.so"
+          "ARMEABI_V7A": "C:\\Users\\utkar\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\arm-linux-androideabi\\libc++_shared.so",
+          "ARM64_V8A": "C:\\Users\\utkar\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\aarch64-linux-android\\libc++_shared.so",
+          "X86": "C:\\Users\\utkar\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\i686-linux-android\\libc++_shared.so",
+          "X86_64": "C:\\Users\\utkar\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\x86_64-linux-android\\libc++_shared.so"
         },
         "LIBCXX_STATIC": {},
         "NONE": {},
         "SYSTEM": {}
-      }
+      },
+      "project": {
+        "rootBuildGradleFolder": "D:\\Project\\WanderLand",
+        "cxxFolder": "D:\\Project\\WanderLand\\.cxx",
+        "compilerSettingsCacheFolder": "D:\\Project\\WanderLand\\.cxx",
+        "sdkFolder": "C:\\Users\\utkar\\AppData\\Local\\Android\\Sdk",
+        "isNativeCompilerSettingsCacheEnabled": false,
+        "isBuildOnlyTargetAbiEnabled": true,
+        "isCmakeBuildCohabitationEnabled": false,
+        "isPrefabEnabled": false,
+        "isV2NativeModelEnabled": true
+      },
+      "nativeBuildOutputLevel": "QUIET"
     },
-    "objFolder": "D:\\Project\\WanderLand\\app\\build\\intermediates\\ndkBuild\\debug\\obj\\local",
-    "variantName": "debug",
-    "validAbiList": [
-      "X86"
-    ],
-    "prefabDirectory": "D:\\Project\\WanderLand\\app\\.cxx\\ndkBuild\\debug\\prefab",
-    "prefabPackageDirectoryList": []
+    "prefabDirectory": "D:\\Project\\WanderLand\\app\\.cxx\\ndkBuild\\debug\\prefab"
+  },
+  "buildSettings": {
+    "environmentVariables": []
   },
   "prefabFolder": "D:\\Project\\WanderLand\\app\\.cxx\\ndkBuild\\debug\\prefab\\x86"
 }

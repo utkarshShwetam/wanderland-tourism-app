@@ -79,22 +79,11 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         //Getting ids
         textView = findViewById(R.id.splash_text);
-        let_textView = findViewById(R.id.letTextView);
-        go_textView = findViewById(R.id.GoTextView);
-        travel_textView = findViewById(R.id.TravelTextView);
-        around_textView = findViewById(R.id.AroundTheWorldTextView);
         imageView = findViewById(R.id.logo_imageView);
         sideAnim = AnimationUtils.loadAnimation(this, R.anim.side_anim);
         bottomAnim = AnimationUtils.loadAnimation(this, R.anim.bottom_anim);
 
-        imageView.animate().translationY(-400).setDuration(2000);
 
-        //set Animations on elements
-        /*textView.setAnimation(bottomAnim);*/
-        let_textView.setAnimation(sideAnim);
-        go_textView.setAnimation(bottomAnim);
-        travel_textView.setAnimation(sideAnim);
-        around_textView.setAnimation(bottomAnim);
         SharedPreferences preferences = getSharedPreferences("AUTHENTICATION_TOKEN_FILE_NAME", Context.MODE_PRIVATE);
         restoredText = preferences.getString("KEY", null);
         if (restoredText != null) {
@@ -109,14 +98,6 @@ public class SplashScreenActivity extends AppCompatActivity {
     }
 
     private void LoginCheck() {
-        /*SharedPreferences preferences = getSharedPreferences("MY_APP", Context.MODE_PRIVATE);
-        String GET_KEY = preferences.getString("KEY",null);
-        Log.e("KEY",GET_KEY);*/
-        /*byte[] decryptedData = SecurityForSession.decrypt(KEY, encData.salt, encData.iv, encData.encryptedData);
-        String decDataAsString = new String(decryptedData, StandardCharsets.UTF_16);
-        Log.e("AES Decrypted",decDataAsString);*/
-        /*final String finalGET_KEY = GET_KEY;*/
-
         final JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put("", "");
