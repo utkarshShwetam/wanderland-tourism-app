@@ -154,4 +154,22 @@
     <string name="booking_history">Booking History</string>
 
 
+    <!-- Strings for On Boarding Screen -->
+
+    <!--Titles-->
+    <string name="first_slide_title">Travel Around The World</string>
+    <string name="second_slide_title">Best Deals You Cannot Refuse</string>
+    <string name="third_slide_title">Privacy Our Top Priority</string>
+    <string name="fourth_slide_title">Sit Back And Enjoy</string>
+    <!--Descriptions-->
+    <string name="first_slide_desc">You can travel any place nearby or with-in the specified city,state,country. We will display specific or all related travel destinations to match your interest. </string>
+    <string name="second_slide_desc">We provide best deals for you. You can perform bookings as well.</string>
+    <string name="third_slide_desc">We provide best in industry security to our customers. You do not need to worry about your privacy we handle it for you while you enjoy your travel.</string>
+    <string name="fourth_slide_desc">We will handle everything for you. As you have the app in your pocket then you donot have to worry about anything.  </string>
+
+    <!--Buttons-->
+    <string name="skip_btn">Skip</string>
+    <string name="next_btn">Next</string>
+    <string name="let_get_started">Lets Get Started</string>
+
 </resources>

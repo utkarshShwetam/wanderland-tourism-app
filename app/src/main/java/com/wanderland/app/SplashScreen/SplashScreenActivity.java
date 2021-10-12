@@ -5,13 +5,16 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 
 import com.wanderland.app.Constants.ConstantValues;
 import com.wanderland.app.DashBoard.MainDashboard;
@@ -39,9 +42,11 @@ import okhttp3.Response;
 public class SplashScreenActivity extends AppCompatActivity {
 
     //Variables
-    TextView textView, let_textView, go_textView, travel_textView, around_textView;
     ImageView imageView;
+    TextView textView;
+
     Animation sideAnim, bottomAnim;
+    SharedPreferences preferences;
 
     //Login parameters OkHttp
     OkHttpClient client;
@@ -84,7 +89,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         bottomAnim = AnimationUtils.loadAnimation(this, R.anim.bottom_anim);
 
 
-        SharedPreferences preferences = getSharedPreferences("AUTHENTICATION_TOKEN_FILE_NAME", Context.MODE_PRIVATE);
+        preferences = getSharedPreferences("AUTHENTICATION_TOKEN_FILE_NAME", Context.MODE_PRIVATE);
         restoredText = preferences.getString("KEY", null);
         if (restoredText != null) {
             Log.e("KEY_Stored", restoredText);
@@ -92,9 +97,30 @@ public class SplashScreenActivity extends AppCompatActivity {
             Log.e("NO_KEY_IF", "No key found");
             restoredText="";
         }
-        LoginCheck();
+        launchCheck();
+    }
 
 
+    private void launchCheck() {
+        preferences=getSharedPreferences("WALK_THROUGH_SCREEN",Context.MODE_PRIVATE);
+        boolean firstLaunch=preferences.getBoolean("FIRST_TIME",true);
+        Log.e("FIRST_CHECK", String.valueOf(firstLaunch));
+        if(firstLaunch){
+            SharedPreferences.Editor editor=preferences.edit();
+            editor.putBoolean("FIRST_TIME",false);
+            editor.apply();
+            Log.e("FIRST_CHECK", String.valueOf(preferences.getBoolean("FIRST_TIME",true)));
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    startActivity(new Intent(getApplicationContext(),WalkThroughActivity.class));
+                    finish();
+                }
+            },2000);
+
+        }else {
+            LoginCheck();
+        }
     }
 
     private void LoginCheck() {
@@ -157,6 +183,7 @@ public class SplashScreenActivity extends AppCompatActivity {
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
+                                    //startActivity(new Intent(getApplicationContext(),WalkThroughActivity.class));
                                     startActivity(new Intent(getApplicationContext(), MainDashboard.class));
                                     finish();
                                 }
