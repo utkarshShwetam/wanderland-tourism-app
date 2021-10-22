@@ -6,10 +6,13 @@
         <entry key="..\:/Project/WanderLand/app/src/main/res/drawable/ic_arrow_back.xml" value="0.24166666666666667" />
         <entry key="..\:/Project/WanderLand/app/src/main/res/drawable/ic_log_out.xml" value="0.24166666666666667" />
         <entry key="..\:/Project/WanderLand/app/src/main/res/drawable/ic_travel_history.xml" value="0.24166666666666667" />
+        <entry key="..\:/Project/WanderLand/app/src/main/res/layout/activity_booking.xml" value="0.4" />
         <entry key="..\:/Project/WanderLand/app/src/main/res/layout/activity_booking_history.xml" value="0.1" />
         <entry key="..\:/Project/WanderLand/app/src/main/res/layout/activity_save_cards.xml" value="0.4" />
         <entry key="..\:/Project/WanderLand/app/src/main/res/layout/activity_splash_screen.xml" value="0.176" />
         <entry key="..\:/Project/WanderLand/app/src/main/res/layout/activity_walk_through.xml" value="0.176" />
+        <entry key="..\:/Project/WanderLand/app/src/main/res/layout/best_offer_card_layout.xml" value="0.6" />
+        <entry key="..\:/Project/WanderLand/app/src/main/res/layout/image_slider_layout.xml" value="0.22552083333333334" />
         <entry key="..\:/Project/WanderLand/app/src/main/res/layout/slider_layout.xml" value="0.136" />
         <entry key="..\:/Project/WanderLand/app/src/main/res/layout/transaction_history_layout.xml" value="0.22552083333333334" />
       </map>

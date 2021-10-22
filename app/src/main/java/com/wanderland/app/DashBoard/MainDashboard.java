@@ -23,9 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.android.material.navigation.NavigationView;
-import com.wanderland.app.Booking.BookingActivity;
 import com.wanderland.app.BookingHistory.BookingHistoryActivity;
-import com.wanderland.app.BookingHistory.Modal.BookingHistoryModal;
 import com.wanderland.app.Constants.ConstantValues;
 import com.wanderland.app.DashBoard.DataModals.BestDealsModal;
 import com.wanderland.app.DashBoard.DataModals.GetPackagesModal;
@@ -318,7 +316,6 @@ public class MainDashboard extends AppCompatActivity implements NavigationView.O
     //OnClick Listener for Popular Deals Recycler
     @Override
     public void OnPopularPlacesClick(int position) {
-        Log.e("Click", "OnPopularPlacesClick: Clicked");
         startActivity(new Intent(this, PackageDetailsActivity.class).putExtra("PopularPlacesDeals", getPackagesModalListPopular.get(position)));
     }
 
@@ -420,11 +417,9 @@ public class MainDashboard extends AppCompatActivity implements NavigationView.O
                             String[] images = new String[packageJson.getJSONArray("images").length()];
                             for (int j = 0; j < packageJson.getJSONArray("images").length(); j++) {
                                 images[j] = packageJson.getJSONArray("images").get(j).toString();
-                                //Log.e("Array", packageJson.getJSONArray("images").get(j).toString());
                             }
                             for (int k = 0; k < packageJson.getJSONArray("locations").length(); k++) {
                                 locations[k] = packageJson.getJSONArray("locations").get(k).toString();
-                                //Log.e("Array", locations[k]);
                             }
                             getPackagesModal.setImagesArray(images);
                             getPackagesModal.setLocationsArray(locations);
@@ -473,7 +468,6 @@ public class MainDashboard extends AppCompatActivity implements NavigationView.O
                             public List<Cookie> loadForRequest(@NotNull HttpUrl httpUrl) {
                                 final ArrayList<Cookie> oneCookie = new ArrayList<>(1);
                                 oneCookie.add(createNonPersistentCookie());
-                                //Log.e("Cookies",oneCookie.toString());
                                 return oneCookie;
 
                             }
@@ -492,9 +486,6 @@ public class MainDashboard extends AppCompatActivity implements NavigationView.O
                     } else {
                         String jsonData = response.body().string();
                         final JSONObject jObject = new JSONObject(jsonData);
-                        //Log.e("JSON", jObject.get("body").toString());
-                        //Log.e("JSON", jObject.getJSONObject("body").get("name").toString());
-                        // Log.e("JSON", jObject.getJSONObject("body").get("username").toString());
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {

@@ -8,6 +8,7 @@ import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -32,6 +33,9 @@ import com.wanderland.app.R;
 import static com.thekhaeng.pushdownanim.PushDownAnim.MODE_SCALE;
 import static maes.tech.intentanim.CustomIntent.customType;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class BookingActivity extends AppCompatActivity {
 
     MaterialButton button;
@@ -51,6 +55,7 @@ public class BookingActivity extends AppCompatActivity {
     StringBuilder loc = new StringBuilder();
     String name, phone, email, zip, noOfPerson, state, address;
     boolean valid, toSaveCard = false;
+    String regex = "^[1-9]{1}[0-9]{2}\\s{0,1}[0-9]{3}$";
 
 
     @Override
@@ -195,16 +200,40 @@ public class BookingActivity extends AppCompatActivity {
             emailTextInputLayout.setError("Email Required");
             val = false;
             textOnChangeListenerEmail();
+        }else{
+            if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+                emailTextInputLayout.setError("Invalid Email");
+                val = false;
+                textOnChangeListenerEmail();
+            }
         }
         if (isStringNull(phone)) {
             phoneTextInputLayout.setError("Phone Required");
             val = false;
             textOnChangeListenerPhone();
+        }else{
+            if (phone.length()!=10) {
+                phoneTextInputLayout.setError("Invalid Number");
+                val = false;
+                textOnChangeListenerPhone();
+            }else if(!Patterns.PHONE.matcher(phone).matches()){
+                phoneTextInputLayout.setError("Invalid Number");
+                val = false;
+                textOnChangeListenerEmail();
+            }
         }
         if (isStringNull(zip)) {
             zipTextInputLayout.setError("Zip Required");
             val = false;
             textOnChangeListenerZip();
+        }else{
+            Pattern p = Pattern.compile(regex);
+            Matcher m = p.matcher(zip);
+            if(!m.matches()) {
+                zipTextInputLayout.setError("Invalid Zip");
+                val = false;
+                textOnChangeListenerZip();
+            }
         }
         if (isStringNull(state)) {
             stateTextInputLayout.setError("State Required");
@@ -255,6 +284,7 @@ public class BookingActivity extends AppCompatActivity {
                     .putExtra("SaveCard", cardForm.isSaveCardCheckBoxChecked()));
 
         } else if(!cardForm.isValid()){
+
             if(cardForm.getCardholderName().isEmpty())
                 cardForm.setCardholderNameError("Name Required");
             if(cardForm.getCardNumber().isEmpty())

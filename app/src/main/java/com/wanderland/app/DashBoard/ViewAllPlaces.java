@@ -87,7 +87,6 @@ public class ViewAllPlaces extends AppCompatActivity implements ViewAllPlacesAda
 
     @Override
     public void OnViewAllPlacesClick(int position) {
-        Log.e("Click", "OnPopularPlacesClick: Clicked");
         startActivity(new Intent(getApplicationContext(), PackageDetailsActivity.class).putExtra("ViewAllDeals",allPackage.get(position)));
     }
 

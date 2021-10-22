@@ -17,6 +17,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.thekhaeng.pushdownanim.PushDownAnim;
@@ -227,7 +228,6 @@ public class LoginActivity extends AppCompatActivity {
                                             startActivity(new Intent(LoginActivity.this, MainDashboard.class));
                                             customType(LoginActivity.this, "left-to-right");
                                             finish();
-
                                         }
                                     } catch (JSONException e) {
                                         e.printStackTrace();
